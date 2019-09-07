@@ -4,7 +4,11 @@ const Ninja = require('../models/ninja');
 
 //mounting the Router .........GET  a list of ninjas from databsae
 router.get('/ninjas', function(req, res, next) {
-  res.send({type:'GET'})
+/* Ninja.find({}).then(function(ninjas){
+  res.send(ninjas);
+}); */
+
+
 });
 
 
