@@ -12,7 +12,7 @@ const NinjaSchema = new Schema({
     type: String
   },
   available: {
-    type Boolean,    //eithe 0 or 1
+    type: Boolean,    //eithe 0 or 1
     default: false   //if no input is given then by default false comes in database
   }
 
@@ -23,4 +23,4 @@ const NinjaSchema = new Schema({
 //creating model that is connected in the database
 const Ninja = mongoose.model('ninja',NinjaSchema);
 
-module.export = Ninja;
+module.exports = Ninja;
