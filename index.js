@@ -21,9 +21,14 @@ app.use(bodyParser.json()); //json object needed also to make the req object to 
 //using the express app routes
 app.use('/api',routes);
 
+//error handling middle ware
+app.use(function(err, req, res, next) {
+res.status(422).send({error: err.message});
+});
+
+
 
 //listen for request
-
 app.listen(process.env.port||4000,function(){
  console.log("now listening for request");
 });
