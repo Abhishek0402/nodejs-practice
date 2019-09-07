@@ -16,12 +16,12 @@ mongoose.Promise = global.Promise;
 
 
 
-app.use(bodyParser.json()); //json object needed also to make the req object to be available with remaining module
+app.use(bodyParser.json()); //1.json object needed also to make the req object to be available with remaining module
 
-//using the express app routes
+//2.using the express app routes
 app.use('/api',routes);
 
-//error handling middle ware
+//3.error handling middle ware
 app.use(function(err, req, res, next) {
 res.status(422).send({error: err.message});
 });

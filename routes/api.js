@@ -25,13 +25,21 @@ router.post('/ninjas', function(req, res, next) {
 
 //UPDATE A NINJA IN THE DB
 router.put('/ninjas/:id', function(req,res, next) {
-  res.send({type:'PUT'})
+    Ninja.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
+      Ninja.findOne({_id: req.params.id}).then(function(ninja){
+          res.send(ninja);
+      });
+
+    });
+
 });
 
 
 //DELETE A NINJA FROM THE JOB
 router.delete('/ninjas/:id', function(req,res, next) {
-  res.send({type:'DELETE'})
+  Ninja.findByIdAndRemove({_id: req.params.id}).then(function(ninja){           //_id bcoz it is saved as it is in databsae
+    res.send(ninja);
+  });
 });
 
 
