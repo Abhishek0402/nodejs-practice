@@ -4,10 +4,15 @@ const Ninja = require('../models/ninja');
 
 //mounting the Router .........GET  a list of ninjas from databsae
 router.get('/ninjas', function(req, res, next) {
-/* Ninja.find({}).then(function(ninjas){
+/* Ninja.find({}).then(function(ninjas){   //function to return all the ninjas without any particular records
   res.send(ninjas);
 }); */
 
+ Ninja.geoNear(    //get the nearest ninja by geoNear
+  {type: 'Point',coordinates: [parseFloat(req.query.lng),parseFloat(req.query.lat)]},
+  {maxDistance: 100000,spherical: true}).then(function(ninjas){
+  res.send(ninjas);
+});
 
 });
 

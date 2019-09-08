@@ -15,6 +15,8 @@ mongoose.connect('mongodb://localhost/ninjago');
 mongoose.Promise = global.Promise;
 
 
+app.use(express.static('public'));   //to serve the static files like index.html,style.css,script.js,etc
+
 
 app.use(bodyParser.json()); //1.json object needed also to make the req object to be available with remaining module
 
